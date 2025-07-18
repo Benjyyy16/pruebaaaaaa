@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pie de Limón de susana! - Delicioso y Casero</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #fffbe6; /* Fondo crema */
+      min-height: 100vh;
+      color: #222;
+      overflow-x: hidden;
+    }
+    .toolbar {
+      background: #ffe066; /* Amarillo */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: slideDown 1s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%);}
+      to { transform: translateY(0);}
+    }
+    .toolbar .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00bfff; /* Celeste */
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .toolbar nav a {
+      color: #222; /* Negro */
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .toolbar nav a:hover {
+      color: #00bfff; /* Celeste */
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1rem 2rem 1rem;
+      text-align: center;
+      animation: fadeIn 1.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #00bfff; /* Celeste */
+      text-shadow: 1px 2px 0 #ffe066;
+      letter-spacing: 1px;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: #222;
+      max-width: 600px;
+    }
+    .hero img {
+      width: 340px;
+      max-width: 90vw;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px rgba(255,224,102,0.15);
+      margin-bottom: 2rem;
+      animation: bounceIn 1.2s;
+      border: 4px solid #ffe066;
+      background: #fff;
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.8);}
+      60% { transform: scale(1.05);}
+      100% { transform: scale(1);}
+    }
+    .order-btn {
+      background: linear-gradient(90deg, #ffe066 60%, #fffbe6 100%);
+      color: #00bfff; /* Celeste */
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 16px rgba(255,224,102,0.13);
+      transition: background 0.2s, transform 0.2s, color 0.2s;
+      animation: pulse 2s infinite;
+    }
+    .order-btn:hover {
+      background: linear-gradient(90deg, #ffe066 60%, #fffbe6 100%);
+      color: #222;
+      transform: scale(1.05);
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,224,102,0.2);}
+      70% { box-shadow: 0 0 0 10px rgba(255,224,102,0);}
+      100% { box-shadow: 0 0 0 0 rgba(255,224,102,0);}
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem 0 2rem 0;
+      animation: fadeIn 1.5s;
+    }
+    .feature-card {
+      background: #fffde7; /* Fondo crema más claro */
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(255,224,102,0.07);
+      padding: 2rem 1.5rem;
+      min-width: 220px;
+      max-width: 300px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: popIn 1s;
+      border: 2px solid #ffe066;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(255,224,102,0.13);
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.8);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .feature-card i {
+      font-size: 2.5rem;
+      color: #ffe066; /* Amarillo */
+      margin-bottom: 0.5rem;
+      display: block;
+      animation: rotateIn 1.2s;
+    }
+    @keyframes rotateIn {
+      from { transform: rotate(-90deg);}
+      to { transform: rotate(0);}
+    }
+    .feature-card h3 {
+      margin: 0.5rem 0 0.3rem 0;
+      color: #00bfff; /* Celeste */
+      font-size: 1.2rem;
+    }
+    .feature-card p {
+      color: #222;
+      font-size: 1rem;
+    }
+    .feature-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+      border: 2px solid #ffe066;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(255,224,102,0.13);
+      animation: bounceIn 1.2s;
+    }
+    .confirmation-modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(255,224,102,0.13);
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.5s;
+    }
+    .confirmation-modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #fffde7;
+      border-radius: 1.2rem;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 8px 32px rgba(255,224,102,0.18);
+      text-align: center;
+      animation: popIn 0.7s;
+      border: 2px solid #ffe066;
+    }
+    .modal-content h2 {
+      color: #00bfff; /* Celeste */
+      margin-bottom: 1rem;
+    }
+    .modal-content p {
+      color: #222;
+      margin-bottom: 1.5rem;
+    }
+    .close-btn {
+      background: #ffe066;
+      color: #00bfff;
+      border: none;
+      padding: 0.7rem 2rem;
+      border-radius: 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .close-btn:hover {
+      background: #00bfff;
+      color: #fff;
+    }
+    footer {
+      background: #ffe066;
+      color: #00bfff;
+      text-align: center;
+      padding: 1.2rem 0;
+      margin-top: 3rem;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      animation: slideUp 1s;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%);}
+      to { transform: translateY(0);}
+    }
+    @media (max-width: 700px) {
+      .features {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .toolbar {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div class="toolbar">
+    <div class="logo">
+      <i class="fa-solid fa-lemon"></i> Pie de Limón
+    </div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#caracteristicas">Características</a>
+      <a href="#ordenar">Ordenar</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+  <section class="hero" id="inicio">
+    <img src="https://cdn0.recetasgratis.net/es/posts/4/5/6/pie_de_limon_y_merengue_facil_44654_orig.jpg" alt="Pie de Limón">
+    <h1>¡Pie de Limón de susana!
+    <p>Disfruta del sabor fresco y cremoso de nuestro pie de limón, hecho con ingredientes naturales y mucho amor. Perfecto para cualquier ocasión, ¡haz tu pedido hoy y endulza tu día!</p>
+    <button class="order-btn" id="orderBtn" aria-label="Ordenar Pie de Limón">Ordenar Ahora</button>
+  </section>
+  <section class="features" id="caracteristicas">
+    <div class="feature-card">
+      <img src="https://www.gob.mx/cms/uploads/image/file/669349/RECETA.png" alt="Ingrediente Pie de Limón">
+      <h3>Ingredientes Naturales</h3>
+      <p>Solo usamos limones frescos, leche condensada y una base crujiente de galleta.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGoakZhm882Oelm43sYvTkyt2cczAk2TK0sA&s" alt="Pie de Limón para Fiestas">
+      <h3>Ideal para Fiestas</h3>
+      <p>Perfecto para cumpleaños, reuniones familiares o simplemente para consentirte.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://www.recetasnestle.com.pe/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/7644fbb679e618f65aa22e10a7b2c89d.jpg?itok=BiaxnGEF" alt="Entrega Pie de Limón">
+      <h3>Entrega Rápida</h3>
+      <p>Recibe tu pie de limón en la puerta de tu casa, fresco y listo para disfrutar.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://i.pinimg.com/736x/f9/a4/0f/f9a40f6b66a49d15f4457d1d87d1b924.jpg" alt="Satisfacción Pie de Limón">
+      <h3>Satisfacción Garantizada</h3>
+      <p>¡A nuestros clientes les encanta! Prueba y descubre por qué somos los favoritos.</p>
+    </div>
+  </section>
+  <section id="ordenar" style="text-align:center; margin: 2rem 0;">
+    <h2 style="color:#00bfff;">¿Listo para probar?</h2>
+    <p>Haz tu pedido ahora y recibe una sorpresa especial en tu primera compra.</p>
+    <button class="order-btn" id="orderBtn2" aria-label="Ordenar Pie de Limón">Ordenar Pie de Limón</button>
+    <div style="margin-top:2rem;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXYZoXPlDc5xugpdyFRU6p7dCpBewMzm4R5Q&s" alt="Pie de Limón" style="width:200px; border-radius:1rem; border:2px solid #ffe066; background:#fff;">
+    </div>
+  </section>
+  <section id="contacto" style="text-align:center; margin: 2rem 0;">
+    <h2 style="color:#00bfff;">Contacto</h2>
+    <p>¿Tienes dudas o quieres hacer un pedido especial? Escríbenos a <a href="mailto:pedidos@piedelimon.com" style="color:#00bfff;">pedidos@piedelimon.com</a> o llámanos al <a href="tel:+5697740" style="color:#00bfff;">+56977404</a></p>
+    <div style="margin-top:1.5rem;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsMjzzzCo9-bftVwDZEudSOdXh072fvxQZgw&s" alt="Pie de Limón Contacto" style="width:120px; border-radius:1rem; border:2px solid #ffe066; background:#fff;">
+    </div>
+  </section>
+  <div class="confirmation-modal" id="confirmationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <h2 id="modalTitle"><i class="fa-solid fa-check-circle" style="color:#00bfff;"></i> ¡Pedido Confirmado!</h2>
+      <p>Gracias por tu pedido. Pronto nos pondremos en contacto para coordinar la entrega de tu delicioso pie de limón.</p>
+      <button class="close-btn" id="closeModalBtn">Cerrar</button>
+    </div>
+  </div>
+  <footer>
+    &c.
+  </footer>
+  <script>
+    // Animación de scroll suave para navegación
+    document.querySelectorAll('.toolbar nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Modal de confirmación de pedido
+    function showModal() {
+      document.getElementById('confirmationModal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('confirmationModal').classList.remove('active');
+    }
+    document.getElementById('orderBtn').addEventListener('click', showModal);
+    document.getElementById('orderBtn2').addEventListener('click', showModal);
+    document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+    // Cerrar modal al hacer click fuera del contenido
+    document.getElementById('confirmationModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    // Cerrar modal con ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
+
+
+
